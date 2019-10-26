@@ -21,7 +21,7 @@ Após clonar ou baixar este repositório, e com node/npm instalado, entre no ter
 cd natura-rev
 npm install
 ```
-Isto deverá instalar todas as bibliotecas necessárias ao projeto. Após instalação deverá ser incluído o diretório node_modules, que é ignorado devido à configuração do _.gitignore_
+Isto deverá instalar todas as bibliotecas necessárias ao projeto. Após instalação estará incluído o diretório node_modules, que é ignorado devido à configuração do _.gitignore_
 
 ## 4. Estrutura do projeto
 
