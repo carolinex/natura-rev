@@ -33,11 +33,12 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "d3": "^5.9.7",
-    "express": "^4.17.1",
-    "svg2gcode": "0.0.5",
+    "canvg": "^2.0.0",
     "d3-fetch": "^1.1.2",
+    "express": "^4.17.1",
+    "gcanvas": "0.0.37",
     "gsap": "^2.1.3",
+    "hammerjs": "^2.0.8",
     "he": "^1.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

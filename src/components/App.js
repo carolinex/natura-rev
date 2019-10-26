@@ -1,3 +1,11 @@
+/* Copyright (C) 2019 Natura Cosméticos - All Rights Reserved
+ * You may not use, distribute and modify this code without
+ * explicit permission.
+ *
+ * Author: Caroline Rozendo
+ *
+ * 'App.js' is the main class for the application
+ */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import * as d3 from 'd3-fetch';
@@ -19,56 +27,92 @@ class App extends Component {
     this.screen = 0;
     this.selectedItem = null;
     this.selectedLanguage = "pt";
-
+    this.selectedFont = "font1";
+    this.machineID = "";
+    this.machineIP = "";
+    this.ipData = null;
     this.loadTexts = this.loadTexts.bind(this);
+    this.updateSettings = this.updateSettings.bind(this);
     this.updateState = this.updateState.bind(this);
     this.changeState = this.changeState.bind(this);
+    this.changeFont = this.changeFont.bind(this);
     this.setState = this.setState.bind(this);
 
     this.state = {
       language: this.selectedLanguage,
       selectedItem: {},
-      textScale: 0.3,
-      textPos:[20,40],
-      imgScale: 0.3,
-      imgPos:[0,0],
-      selectedFont: "font1"
+      selectedFont: "font1",
+      machineIP: ""
     }
   }
 
   loadTexts(){
-    //this.texts = {};
-    //this.products = {};
     let texts = this.texts;
     let products = this.products;
 
-    d3.tsv("data/texts.tsv", function(d,i) {
+    d3.tsv("data/texts.tsv?"+(new Date()).getTime(), function(d,i) {
       if(!d.en){ d.en = "" }
       texts["t"+d.id] = d;
       return d;
     }).then(this.updateState);
 
-    d3.tsv("data/products.tsv", function(d) {
+    d3.tsv("data/products.tsv?"+(new Date()).getTime(), function(d) {
       products.push(d);
       return d;
     }).then(this.updateState);
+
+    d3.tsv("http://carolx.me/w/nat-server/data/ipdata.tsv?"+(new Date()).getTime())
+      .then((data) => {
+        this.ipData = data;
+        console.log(this.ipData)
+        if(!this.machineID){
+          this.machineID = "";
+        }else{
+          this.machineIP = "";
+          for(var i=0; i<data.length; i++){
+
+            if(data[i].id == this.machineID){
+              this.machineIP = data[i].ip;
+              break;
+            }
+          }
+        }
+
+        this.updateState();
+      })
   }
 
   componentDidMount(){
-    /*this.setState({
-      language: "pt",
-      selectedItem: {}
-    });*/
+  }
+
+  changeFont(font){
+    this.selectedFont = font;
+    this.updateState();
   }
 
   changeState(e){
-    //console.log(this.state);
     e.preventDefault();
 
     let products = this.products;
     let tgtRow;
     let sections = document.querySelectorAll("section");
     let tgtStep = e.target.getAttribute("data-step");
+
+
+    //fullscreen
+    if(tgtStep == 1){
+      let elem = document.getElementById("main");
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+      }
+    }
 
     sections.forEach(function(elem,i){
       if(i<tgtStep){
@@ -82,7 +126,7 @@ class App extends Component {
       }else if(i>tgtStep){
         elem.classList.add("after");
         elem.classList.remove("current");
-        elem.classList.remove("after");
+        elem.classList.remove("before");
       }
     });
 
@@ -93,38 +137,85 @@ class App extends Component {
     }
   }
 
+  updateSettings(e){
+    e.stopPropagation();
+    let setting = e.target.getAttribute("data-setting");
+    let content = e.target.getAttribute("data-content");
+
+    if(setting == "machineID"){
+      this.machineID = content;
+      localStorage.setItem("machineID", this.machineID);
+      this.machineIP = "";
+
+      this.loadTexts();
+      /*for(var i=0; i<this.ipData.length; i++){
+        if(this.ipData[i].id == this.machineID){
+          this.machineIP = this.ipData[i].ip;
+          break;
+        }
+      }*/
+    }else if(setting == "selectedLanguage"){
+      this.selectedLanguage = content;
+    }
+
+    this.updateState();
+  }
+
   updateState(){
     let item = this.selectedItem;
     let lang = this.selectedLanguage;
+    let font = this.selectedFont;
+    let ip = this.machineIP;
 
     if( this.products != {} && this.texts != {} ){
       let product = item ? this.products[item] : {};
 
       this.setState({
         language: lang,
+        font: font,
+        machineIP: ip,
         selectedItem: product
+      });
+    }else{
+      this.setState({
+        language: lang,
+        font: font,
+        machineIP: ip,
+        selectedItem: { }
       });
     }
   }
 
   componentDidUpdate(){
-    console.log("state updated");
+    if(typeof(Storage) !== "undefined") {
+      localStorage.setItem("machineID", this.machineID);
+      localStorage.setItem("lang", this.selectedLanguage);
+    }
   }
 
   componentWillMount(){
+    if(typeof(Storage) !== "undefined" && localStorage.lang) {
+      //localStorage.clear();
+      this.selectedLanguage = localStorage.lang;
+      this.machineID = localStorage.machineID;
+    }
     this.loadTexts();
   }
 
   render(){
-    //console.log(this.state);
-    let lang = this.state.language;
 
+    let lang = this.state.language;
+    /* This is the overall structure of the page
+     * with one component per section
+     */
     return (
       <div id="main">
         <Opening
           language={lang}
           texts={this.texts}
-          stateHandler = {this.changeState} />
+          stateHandler = {this.changeState}
+          updateHandler = {this.updateSettings}
+          machineID = {this.machineID} />
 
         <ProductSelection
           language={lang}
@@ -133,10 +224,13 @@ class App extends Component {
           stateHandler = {this.changeState} />
 
         <Personalization
-          language={lang}
-          texts={this.texts}
-          product={this.state.selectedItem}
-          stateHandler = {this.changeState} />
+          language={ lang }
+          texts={ this.texts }
+          product={ this.state.selectedItem }
+          stateHandler = {this.changeState }
+          machineIP = { this.state.machineIP }
+          fontHandler = { this.changeFont }
+          font = { this.state.font }  />
 
 			</div>
 		)

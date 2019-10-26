@@ -23,7 +23,7 @@ module.exports = {
 			  use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
 			},
       /*{
-        test: /\.(jpe?g|png|gif)$/,
+        test: /\.(jpe?g|png|gif|svg)$/,
         use: [{
           // inline if smaller than 10 KB, otherwise load as a file
           loader: 'url-loader',
@@ -36,7 +36,7 @@ module.exports = {
 				test: /\.html$/,
 				use: ['html-loader']
 			},
-			{
+			/*{
 			  test: /\.(mov|mp4)$/,
 			  use: [
 			    {
@@ -46,7 +46,7 @@ module.exports = {
 			      }
 			    }
 			  ]
-			},
+			},*/
       {
         test: /\.(eot|ttf|woff2?|otf)$/,
         use: 'file-loader'
@@ -64,6 +64,8 @@ module.exports = {
       }
 		]
 	},
+  /*target: 'node',*/
+	/*externals : { canvas: {} },*/
   devServer: {
     contentBase: "dist",
 		overlay: true,
@@ -84,5 +86,4 @@ module.exports = {
 	performance: {
 	  hints: false
 	}
-	//.concat(htmlPlugins)
 }

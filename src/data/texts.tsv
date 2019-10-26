@@ -1,5 +1,5 @@
 id	pt	en
-1	revolution 3	revolution 3
+1
 2	Começar	Start
 3	Qual produto você gostaria de personalizar?	Which product would you like to personalize?
 4	Voltar à tela inicial	Back to previous page
@@ -7,7 +7,7 @@ id	pt	en
 6	Mensagem	Message
 7	Figura	Image
 8	Visualizar	Preview
-9	E aí, como será sua mensagem especial?	So, what special message do you want to add?
+9	E aí, como será sua mensagem especial?	What special message do you want to add?
 10	Personalizar	Personalize
 11	Mensagens prontas	Template messages
 12	Escreva aqui sua mensagem	Write your message here
@@ -31,3 +31,5 @@ id	pt	en
 30	Em quais quadrantes está sua surpresa?	In which quadrants are you going to engrave the message?
 31	Cuidado para posicionar sua mensagem nas superfícies planas do produto e sem impressões pré-existentes. Assim sua surpresa vai ficar muito mais bonita!	Make sure to position the message on the flat surfaces of yout product. This way, your message will look a lot nicer!
 32	OK	OK
+33	Enviar	Send
+34	Voltar ao início	Back to start

@@ -14,31 +14,6 @@ class ProductSelection extends Component {
 
   onItemClick(e) {
     this.props.stateHandler(e);
-    /*
-    e.preventDefault();
-    let products = this.props.products;
-    let tgtRow = e.target.getAttribute("data-row");
-    console.log(products[tgtRow]);
-
-    let sections = document.querySelectorAll("section");
-    let tgt = 2;
-
-    sections.forEach(function(elem,i){
-      if(i<tgt){
-        elem.classList.add("before");
-        elem.classList.remove("current");
-        elem.classList.remove("after");
-      }else if(i==tgt){
-        elem.classList.add("current");
-        elem.classList.remove("before");
-        elem.classList.remove("after");
-      }else if(i>tgt){
-        elem.classList.add("after");
-        elem.classList.remove("current");
-        elem.classList.remove("after");
-      }
-    });
-    */
   }
 
   render(){
@@ -56,10 +31,10 @@ class ProductSelection extends Component {
           <h2>
             <div id="t3" dangerouslySetInnerHTML={this.createMarkup(lang && texts.t3 ? texts.t3[lang] : "")}></div>
           </h2>
-          <ul className="product-list">
+          <ul className="product-list scrollable">
           {products.map((row, j) =>
             <li key={j} data-row={j} data-step="2" onClick={this.onItemClick.bind(this)}>
-              <img src={ row.image } />
+              <img src={ row.image1 } />
               <div className="label">
                 { row["name_"+lang] }
               </div>
@@ -68,24 +43,19 @@ class ProductSelection extends Component {
           }
           </ul>
 
+          <div className="button-holder">
           <Button
           id=""
-          text={ lang && texts.t4 ? texts.t4[lang] : "" }
+          text={ lang && texts.t34 ? texts.t34[lang] : "" }
           targetStep="0"
           class=""
           clickHandler={props.stateHandler} />
+          </div>
         </div>
 
 			</section>
 		)
 	}
-
 }
-
-/*{data.map((row, i) =>
-  {row.map((col, j) =>
-    <ProductThumb />
-  )}
-)}*/
 
 export default ProductSelection;

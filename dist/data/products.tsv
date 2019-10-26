@@ -1,5 +1,9 @@
-id	name_pt	name_en	image	x	y	width	height
-1	Ilía	Ilía	images/products/ilia.jpg	11	9	32	18
-2	Natura Homem	Natura Homem	images/products/homem.jpg	16	40	23	20
-1	Ilía	Ilía	images/products/ilia.jpg	11	9	32	18
-2	Natura Homem	Natura Homem	images/products/homem.jpg	16	40	23	20
+id	name_pt	name_en	image1	image2	area_screen	product_width	product_height	product_x	product_y	rotation	pen
+1	Essencial	Essencial	images/products/essencial_cover.jpg	images/products/essencial_top.jpg	6 33 33 28.5	35	30	5.00	74.14	0	silver
+2	Ilia	Ilia	images/products/ilia_cover.jpg	images/products/ilia_top.jpg	20 48 60 38.5	47	30	5.00	37.09	0	white
+3	K	K	images/products/k_coverb.jpg	images/products/k_topb.jpg	36 39 27.5 47.5	37	65	1.79	66.36	-90	silver
+4	Natura Homem	Natura Homem	images/products/homem_cover.jpg	images/products/homem_top.jpg	28 32 44.7 58	57	73.96	5.00	68.96	0	white
+5	Sérum Intensivo	Intensive Firming Serum	images/products/serum_cover.jpg	images/products/serum_top_1.jpg	18 39 66.5 19	57	16	0.00	69.20	0	white
+6	Base Nude Me	Serum Foundation	images/products/base_una_coverb.jpg	images/products/base_una_topb.jpg	17 41 66.5 19	57	16	0.00	33.72	0	white
+7	Acqua	Aqua	images/products/aqua_cover.jpg	images/products/aqua_top.jpg	26 27 47 47	43.13	43.13	6.93	63.87	0	white
+8	Máscara Reparadora	Repairing Hair Mask	images/products/mask_cover.jpg	images/products/mask_top.jpg	24.5 25 51 51	48.08	48.08	4.46	66.34	0	white
