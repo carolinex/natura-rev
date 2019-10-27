@@ -4,6 +4,12 @@ Natura Revolution - Fase 3 (I'mprinting)
 
 Projeto de aplicação web voltada para tablet Android. Após compilada, a aplicação pode ser aberta no tablet em navegador Chrome e salva como aplicativo nativo.
 
+# Importante
+
+Para fins de teste, foi realizado um processo de salvamento dos IPs e IDs das máquinas diretamente num arquivo tsv no servidor. Por questão de segurança, este processo não é recomendado para ambiente final de produção e não deve ser utilizado. O método loadTexts no componente App.js carrega, além dos textos e dados de produtos, a lista de ips salvos no endereço _http://carolx.me/w/nat-server/data/ipdata.tsv_ . Altere este endereço para o endereço final do arquivo.
+
+Os arquivos de exemplo referentes ao servidor para armazenar os IPs associados a cada máquina estão disponibilizados no repositório separado, [natura-server](https://github.com/carolinex/natura-server). **NÃO É RECOMENDADO UTILIZAR ESTE MÉTODO DEFINITIVAMENTE EM SERVIDOR DE PRODUÇÃO SEM SEM A IMPLEMENTAÇÃO DE UM SISTEMA DE TOKEN OU OUTRO MÉTODO DE SEGURANÇA**
+
 ## 1. Plataforma
 
 O projeto foi projetado para rodar em tablet. Algumas funcionalidades, como o redimensionamento de imagem por gesto, não estão disponíveis em Desktop. A interface é semi-responsiva, não sendo adequada para manipulação em celulares, mas pode adaptar-se a formatos de tablet diferentes.
@@ -54,12 +60,9 @@ npm run build
 Feito isto, os arquivos serão salvos no diretório _dist_ e poderão ser repassados ao servidor.
 
 
-# Importante
+## 6. Interface
 
-Para fins de teste, foi realizado um processo de salvamento dos IPs e IDs das máquinas diretamente num arquivo tsv no servidor. Por questão de segurança, este processo não é recomendado para ambiente final de produção e não deve ser utilizado. O método loadTexts no componente App.js carrega, além dos textos e dados de produtos, a lista de ips salvos no endereço _http://carolx.me/w/nat-server/data/ipdata.tsv_ . Altere este endereço para o endereço final do arquivo.
-
-Os arquivos de exemplo referentes ao servidor para armazenar os IPs associados a cada máquina estão disponibilizados no repositório separado [natura-server](https://github.com/carolinex/natura-server). Porém, **NÃO É RECOMENDADO UTILIZAR ESTE MÉTODO DEFINITIVAMENTE EM PRODUÇÃO**
-
+Na tela inicial, há um ícone discreto de engrenangem no topo superior direito. Este botão permite à funcionária configurar o tablet para a máquina específica.
 
 
 
