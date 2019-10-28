@@ -6,7 +6,7 @@ Projeto de aplicação web voltada para tablet Android. Após compilada, a aplic
 
 # Importante
 
-Para fins de teste, foi realizado um processo de salvamento dos IPs e IDs das máquinas diretamente num arquivo tsv no servidor. Por questão de segurança, este processo não é recomendado para ambiente final de produção e não deve ser utilizado. O método loadTexts no componente App.js carrega, além dos textos e dados de produtos, a lista de ips salvos no endereço _http://carolx.me/w/nat-server/data/ipdata.tsv_ . Altere este endereço para o endereço final do arquivo.
+Para fins de teste, foi realizado um processo de salvamento dos IPs e IDs das máquinas diretamente num arquivo tsv no servidor. Por questão de segurança, este processo não é recomendado para ambiente final de produção e não deve ser utilizado. O método loadTexts no componente [App.js](src/components/App.js) carrega, além dos textos e dados de produtos, a lista de ips salvos no endereço _http://carolx.me/w/nat-server/data/ipdata.tsv_ . Altere este endereço para o endereço final do arquivo.
 
 Os arquivos de exemplo referentes ao servidor para armazenar os IPs associados a cada máquina estão disponibilizados no repositório separado, [natura-server](https://github.com/carolinex/natura-server). **NÃO É RECOMENDADO UTILIZAR ESTE MÉTODO DEFINITIVAMENTE EM SERVIDOR DE PRODUÇÃO SEM SEM A IMPLEMENTAÇÃO DE UM SISTEMA DE TOKEN OU OUTRO MÉTODO DE SEGURANÇA**
 
