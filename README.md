@@ -71,6 +71,11 @@ Para utilizar a mesma configuração de teste, o endereço para onde este par de
 Ao clicar no botão enviar da tela final, o aplicativo converte a mensagem e imagem escolhidas para GCODE e envia somente a primeira linha para a máquina associada àquele ID via websocket. Caso a máquina responda OK, o aplicativo envia a segunda linha, e assim por diante até finalizar o código. Se a resposta recebida da máquina não for OK, o aplicativo fecha a conexão com a máquina.
 
 <img src="dist/images/readme/tela2-a.jpg" alt="Tela 2 - A" width="600px" height="450px">
+
 <img src="dist/images/readme/tela3-a.jpg" alt="Tela 3 - A" width="600px" height="450px">
+
 <img src="dist/images/readme/tela3-b.jpg" alt="Tela 3 - B" width="600px" height="450px">
+
 <img src="dist/images/readme/tela4-a.jpg" alt="Tela 4 - A" width="600px" height="450px">
+
+Para fins de debug, o GCODE enviado está sendo impresso no console do navegador.
