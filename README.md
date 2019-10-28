@@ -62,8 +62,15 @@ Feito isto, os arquivos serão salvos no diretório _dist_ e poderão ser repass
 
 ## 6. Interface
 
-Na tela inicial, há um ícone discreto de engrenagem no topo superior direito. Este botão está intencionalmente pouco visível, pois serve ao funcionário ou funcionária da loja configurar o tablet para a máquina específica.
+Na tela inicial, há um ícone discreto de engrenagem no topo superior direito. Este botão está intencionalmente pouco visível, pois serve ao funcionário ou funcionária da loja configurar o tablet para a máquina específica. O ID digitado no campo indicado correponde ao ID na etiqueta afixada à máquina. A máquina está configurada para enviar seu IP ao servidor toda vez que ele for alterado, por isso ao iniciar o app, a página carrega a lista de IPs configurados e confere com o ID da etiqueta que foi digitado na interface. 
 
+Para utilizar a mesma configuração de teste, o endereço para onde este par de ID/IP é enviado deve ser modificado em todas as máquinas quando o servidor for alterado (Lembrando que esta foi uma solução temporária e deve ser revista para ambiente final de produção).
 
+<img src="dist/images/readme/tela1-a.jpg" alt="Tela 1 - A" width="400px" height="300px"> . . . <img src="dist/images/readme/tela1-b.jpg" alt="Tela 1 - B" width="400px" height="300px">
 
+Ao clicar no botão enviar da tela final, o aplicativo converte a mensagem e imagem escolhidas para GCODE e envia somente a primeira linha para a máquina associada àquele ID via websocket. Caso a máquina responda OK, o aplicativo envia a segunda linha, e assim por diante até finalizar o código. Se a resposta recebida da máquina não for OK, o aplicativo fecha a conexão com a máquina.
 
+<img src="dist/images/readme/tela2-a.jpg" alt="Tela 2 - A" width="600px" height="450px">
+<img src="dist/images/readme/tela3-a.jpg" alt="Tela 3 - A" width="600px" height="450px">
+<img src="dist/images/readme/tela3-b.jpg" alt="Tela 3 - B" width="600px" height="450px">
+<img src="dist/images/readme/tela4-a.jpg" alt="Tela 4 - A" width="600px" height="450px">
