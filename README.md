@@ -12,12 +12,12 @@ Os arquivos de exemplo referentes ao servidor para armazenar os IPs associados a
 
 ## 1. Plataforma
 
-O projeto foi projetado para rodar em tablet. Algumas funcionalidades, como o redimensionamento de imagem por gesto, não estão disponíveis em Desktop. A interface é semi-responsiva, não sendo adequada para manipulação em celulares, mas pode adaptar-se a formatos de tablet diferentes.
+O projeto em fase de testes foi projetado para rodar em tablet Android e não foi testado em outras plataformas. Algumas funcionalidades, como o redimensionamento de imagem por gesto, não estão disponíveis em Desktop. A interface é semi-responsiva, não sendo adequada para manipulação em celulares, mas pode adaptar-se a alguns formatos de tablet diferentes.
 
 ## 2. Dependências
 
 Para desenvolvimento e deploy, é necessário ter [NodeJs](https://nodejs.org) instalado. 
-As demais dependências, tais como Webpack e React, estão listadas no arquivo package.json e serão baixadas durante a instalação
+As demais dependências, tais como Webpack e React, estão listadas no arquivo package.json e serão baixadas durante a instalação.
 
 ## 3. Instalação
 
@@ -62,7 +62,7 @@ Feito isto, os arquivos serão salvos no diretório _dist_ e poderão ser repass
 
 ## 6. Interface
 
-Na tela inicial, há um ícone discreto de engrenangem no topo superior direito. Este botão permite à funcionária configurar o tablet para a máquina específica.
+Na tela inicial, há um ícone discreto de engrenagem no topo superior direito. Este botão está intencionalmente pouco visível, pois serve ao funcionário ou funcionária da loja configurar o tablet para a máquina específica.
 
 
 
